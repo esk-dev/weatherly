@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch --browsers=ChromeHeadless",
+    "lint": "ng lint",
     "lint:all": "ng lint --quiet",
     "lint:fix": "eslint -c eslint.config.js --fix $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\")",
     "lint:affected": "eslint -c eslint.config.js $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\")",
