@@ -9,9 +9,9 @@
     "test": "ng test --no-watch --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint:all": "ng lint --quiet",
-    "lint:fix": "eslint -c eslint.config.js --fix $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\")",
     "lint:affected": "eslint -c eslint.config.js $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\")",
-    "format-fix": "npx prettier --write **/* --ignore-unknown",
+    "lint:affected:fix": "eslint -c eslint.config.js --fix $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\")",
+    "format:affected:fix": "npx prettier --write $(git diff --name-only --diff-filter=d HEAD | grep  -E \"(.js$|.ts$|.html$)\") --ignore-unknown",
     "prepare": "husky"
   },
   "private": true,
@@ -51,11 +51,21 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.3.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "8.27.0"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,js,html}": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.scss": "prettier --write --ignore-unknown"
   }
 }
