@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    @if (sidenavTitle()) {
+      <mat-toolbar color="primary">{{ sidenavTitle() }}</mat-toolbar>
+    }
+
+    @for (item of sidebarItems$ | async; track $index; let last = $last) {
+      @if (item.template) {
+        <ng-container
+          [ngTemplateOutlet]="item.template"
+          [ngTemplateOutletContext]="item.context"
+        >
+        </ng-container>
+      }
+
+      @if (item.component) {
+        <ng-container
+          *ngComponentOutlet="item.component; inputs: item.inputs"
+        ></ng-container>
+      }
+
+      @if (!last) {
+        <mat-divider></mat-divider>
+      }
+    }
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar color="primary" class="header">
+      @if (isHandset$ | async) {
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Toggle sidenav"
+          (click)="drawer.toggle()"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <span>{{ headerTitle() }}</span>
+      <span class="spacer"></span>
+
+      <ng-content></ng-content>
+    </mat-toolbar>
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <mat-toolbar color="accent" class="footer">
+      <span>Weather Dashboard ©</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

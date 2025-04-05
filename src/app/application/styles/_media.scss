@@ -1,0 +1,21 @@
+$breakpoints: (
+  "xs": 480px,
+  // Мобильные (маленькие)
+  "sm": 768px,
+  // Планшеты (портрет)
+  "md": 1024px,
+  // Планшеты (альбом)
+  "lg": 1280px,
+  // Ноутбуки
+  "xl": 1440px, // Большие экраны
+);
+
+@mixin media($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "❌ Ошибка: Брейкпоинт #{$size} не найден!";
+  }
+}

@@ -1,0 +1,50 @@
+@use "../../../application/styles/theming-helpers" as theming-helpers;
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+  border-right: 0.5px solid;
+  @include theming-helpers.apply-theme-color("border-color", "outline-variant");
+}
+
+.sidenav .mat-toolbar {
+  justify-content: center;
+  border-bottom: 0.5px solid;
+  @include theming-helpers.apply-theme-color("border-color", "outline-variant");
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  border-bottom: 0.5px solid;
+  @include theming-helpers.apply-theme-color("border-color", "outline-variant");
+  span {
+    margin: 0 2rem;
+  }
+}
+
+.header .spacer {
+  flex: 1 1 auto;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.footer {
+  border-top: 0.5px solid;
+  @include theming-helpers.apply-theme-color("border-color", "outline-variant");
+  padding: 0 16px;
+  span {
+    font-size: 0.8em;
+  }
+}
