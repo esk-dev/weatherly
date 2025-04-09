@@ -1,0 +1,54 @@
+@use "../../node_modules/@angular/material/index" as mat;
+@use "media" as mixin;
+@use "theme-colors" as themes;
+@use "generate-theme-vars" as vars;
+@use "mobile-specific-base" as mobile;
+
+@include mat.core();
+@include mobile.init();
+
+:root .mat-typography.dark-theme {
+  @include mat.all-component-colors(themes.$dark-theme);
+  @include vars.generate-theme-variables(themes.$dark-theme);
+}
+
+:root .mat-typography.light-theme {
+  @include vars.generate-theme-variables(themes.$light-theme);
+}
+
+:root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family:
+    "Inter Tight",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+  @media (max-width: 768px) {
+    height: 100dvh;
+  }
+
+  @include mobile.init();
+  @include mat.all-component-themes(themes.$light-theme);
+}
+
+html,
+body,
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

@@ -1,4 +1,4 @@
-import { IEnvironment } from '../app/shared/core/environment/env';
+import { IEnvironment } from '@common/environment/env';
 
 export const environment: IEnvironment = {
   production: false,

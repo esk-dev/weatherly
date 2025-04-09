@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #leftSidenav
+    class="left-sidenav"
+    fixedInViewport
+    attr.role="left-sidenav"
+    mode="side"
+    opened="true"
+    position="start"
+  >
+    <ng-content select="sidebar-header"></ng-content>
+    <weatherly-sidenav-content />
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <ng-content select="weatherly-header"></ng-content>
+    <weatherly-main-content />
+    <ng-content select="weatherly-footer"></ng-content>
+  </mat-sidenav-content>
+
+  <!-- TODO: Questionable UI/UX -->
+  <!-- add forecast in main-content page -->
+  <!--  <mat-sidenav-->
+  <!--    #rightSidenav-->
+  <!--    class="right-sidenav"-->
+  <!--    fixedInViewport-->
+  <!--    mode="side"-->
+  <!--    attr.role="left-sidenav"-->
+  <!--    opened="true"-->
+  <!--    position="end"-->
+  <!--  >-->
+  <!--    <ng-content select="right-sidenav"></ng-content>-->
+  <!--  </mat-sidenav>-->
+</mat-sidenav-container>

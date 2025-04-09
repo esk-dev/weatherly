@@ -29,7 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/app/application/styles/styles.scss"],
+            "styles": ["src/styles/styles.scss"],
             "scripts": [],
             "webWorkerTsConfig": "tsconfig.worker.json"
           },
@@ -85,7 +85,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/app/application/styles/styles.scss"],
+            "styles": ["src/styles/styles.scss"],
             "scripts": [],
             "webWorkerTsConfig": "tsconfig.worker.json"
           }

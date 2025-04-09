@@ -1,0 +1,19 @@
+@for (item of sidebarItems$ | async; track $index; let last = $last) {
+  @if (item.template) {
+    <ng-container
+      [ngTemplateOutlet]="item.template"
+      [ngTemplateOutletContext]="item.context"
+    >
+    </ng-container>
+  }
+
+  @if (item.component) {
+    <ng-container
+      *ngComponentOutlet="item.component; inputs: item.inputs"
+    ></ng-container>
+  }
+
+  @if (!last) {
+    <mat-divider></mat-divider>
+  }
+}

@@ -1,0 +1,37 @@
+@use "../../../styles/media" as mixin;
+
+:host {
+  display: block;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.sidenav-container {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+mat-sidenav.left-sidenav {
+  border-right-color: var(--md-sys-outline-variant);
+  border-radius: 0;
+  width: 30%;
+  @include mixin.media("xl") {
+    width: 20%;
+  }
+}
+
+mat-sidenav.right-sidenav {
+  border-left: var(--md-sys-outline-variant) 0.25px solid;
+  border-right: none;
+  border-radius: 0;
+  width: 30%;
+  @include mixin.media("xl") {
+    width: 20%;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

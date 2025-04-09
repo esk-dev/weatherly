@@ -1,0 +1,18 @@
+@if (isHandset$ | async) {
+  <weatherly-mobile-layout>
+    <weatherly-header>
+      <weatherly-toggle-theme class="right-side" />
+    </weatherly-header>
+    <weatherly-footer>
+      <weatherly-sidenav-content class="footer-content" />
+    </weatherly-footer>
+  </weatherly-mobile-layout>
+} @else {
+  <weatherly-desktop-layout>
+    <weatherly-header>
+      <weatherly-toggle-sidenav class="left-side" />
+      <weatherly-toggle-theme class="right-side" />
+    </weatherly-header>
+    <weatherly-footer> </weatherly-footer>
+  </weatherly-desktop-layout>
+}
